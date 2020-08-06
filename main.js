@@ -59,45 +59,27 @@ class Team extends React.Component {
   }
 }
 
-class Game extends React.Component {
-  constructor(props) {
-    super(props)
+function Game(props) {
+    return(
+    <div className="Game">
+        <h1>Welcome to {props.venue}</h1>
+    <div className="stats">
+    <Team
+      name={props.visitingTeam.name}
+      logo={props.visitingTeam.logo}
+    />
 
-    this.state = {
-      homeTeamStats: {
-        shots: 0,
-        score: 0
-      },
-      visitingTeamStats: {
-        shots: 0,
-        score: 0
-      }
-    }
-  }
+    <div className="versus">
+      <h1>VS</h1>
+    </div>
 
-  render() {
-    return (
-      <div className="Game">
-        <div className="stats">
-          <Team
-            name={props.visitingTeam.name}
-            logo={props.visitingTeam.logo}
-            stats={this.state.visitingTeamStats}
-          />
-
-          <div className="versus">
-            <h1>VS</h1>
-          </div>
-
-          <Team
-            name={props.homeTeam.name}
-            logo={props.homeTeam.logo}
-            stats={this.state.homeTeamStats}
-          />
-        </div>
-      </div>
+    <Team
+      name={props.homeTeam.name}
+      logo={props.homeTeam.logo}
+    />
+  </div>
+  </div>
     )
-  }
 }
 
 function App(props) {
